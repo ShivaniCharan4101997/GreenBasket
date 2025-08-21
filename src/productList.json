@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "name": "Organic Banana",
+    "category": "Fruits",
+    "price": 120,
+    "unit": "1 kg",
+    "image": "/assets/banana.png",
+    "description": "Fresh and juicy organic bananas, rich in fiber and vitamins.",
+    "bestseller": true
+  },
+  {
+    "id": 2,
+    "name": "Beef",
+    "category": "Meat",
+    "price": 600,
+    "unit": "1 kg",
+    "image": "/assets/beef.png",
+    "description": "Tender and juicy organic beef, rich in protein and iron.",
+    "bestseller": false
+  },
+  {
+    "id": 3,
+    "name": "Broccoli",
+    "category": "Vegetables",
+    "price": 90,
+    "unit": "500 g",
+    "image": "/assets/broccoli.png",
+    "description": "Fresh green broccoli, high in antioxidants and vitamins.",
+    "bestseller": false
+  },
+  {
+    "id": 4,
+    "name": "Butter",
+    "category": "Dairy",
+    "price": 40,
+    "unit": "200 g",
+    "image": "/assets/butter.png",
+    "description": "Creamy and rich butter, perfect for cooking and baking.",
+    "bestseller": true
+  },
+  {
+    "id": 5,
+    "name": "Cabbage",
+    "category": "Vegetables",
+    "price": 50,
+    "unit": "1 kg",
+    "image": "/assets/cabbage.png",
+    "description": "Fresh and crunchy cabbage, perfect for salads and stir-fries.",
+    "bestseller": true
+  },
+  {
+    "id": 6,
+    "name": "Capsicum",
+    "category": "Vegetables",
+    "price": 180,
+    "unit": "1 kg",
+    "image": "/assets/capsicum.png",
+    "description": "Fresh and colorful capsicum, ideal for salads, curries, and roasting.",
+    "bestseller": false
+  },
+  {
+    "id": 7,
+    "name": "Cheese",
+    "category": "Dairy",
+    "price": 320,
+    "unit": "500 g",
+    "image": "/assets/cheese.png",
+    "description": "Rich and creamy cheese, perfect for sandwiches, pizzas, and snacks.",
+    "bestseller": true
+  },
+  {
+    "id": 8,
+    "name": "Chicken Breast",
+    "category": "Meat",
+    "price": 250,
+    "unit": "500 g",
+    "image": "/assets/chicken-breast.png",
+    "description": "Tender and juicy chicken breast, perfect for grilling or stir-frying.",
+    "bestseller": false
+  },
+  {
+    "id": 9,
+    "name": "Condensed Milk",
+    "category": "Dairy",
+    "price": 90,
+    "unit": "400 g",
+    "image": "/assets/condensed-milk.png",
+    "description": "Rich and creamy condensed milk, perfect for desserts and beverages.",
+    "bestseller": false
+  },
+  {
+    "id": 10,
+    "name": "Eggplant",
+    "category": "Vegetables",
+    "price": 70,
+    "unit": "1 kg",
+    "image": "/assets/eggplant.png",
+    "description": "Fresh and tender eggplant, perfect for grilling or roasting.",
+    "bestseller": true
+  },
+  {
+    "id": 11,
+    "name": "Eggs",
+    "category": "Dairy",
+    "price": 75,
+    "unit": "1 dozen",
+    "image": "/assets/eggs.png",
+    "description": "Farm-fresh eggs, packed with protein and essential nutrients.",
+    "bestseller": true
+  },
+  {
+    "id": 12,
+    "name": "Grapes",
+    "category": "Fruits",
+    "price": 150,
+    "unit": "1 kg",
+    "image": "/assets/grapes.png",
+    "description": "Juicy and sweet grapes, rich in antioxidants.",
+    "bestseller": true
+  },
+  {
+    "id": 13,
+    "name": "Kale",
+    "category": "Vegetables",
+    "price": 120,
+    "unit": "500 g",
+    "image": "/assets/kale.png",
+    "description": "Leafy green kale, full of vitamins and minerals.",
+    "bestseller": false
+  },
+  {
+    "id": 14,
+    "name": "Kiwi",
+    "category": "Fruits",
+    "price": 200,
+    "unit": "1 kg",
+    "image": "/assets/kiwi.png",
+    "description": "Tangy and refreshing kiwi, loaded with vitamin C.",
+    "bestseller": false
+  },
+  {
+    "id": 15,
+    "name": "Lettuce",
+    "category": "Vegetables",
+    "price": 80,
+    "unit": "1 head",
+    "image": "/assets/lettuce.png",
+    "description": "Crisp and fresh lettuce, ideal for salads and wraps.",
+    "bestseller": true
+  },
+  {
+    "id": 16,
+    "name": "Milk",
+    "category": "Dairy",
+    "price": 60,
+    "unit": "1 liter",
+    "image": "/assets/milk.png",
+    "description": "Fresh full-cream milk, rich in calcium and protein.",
+    "bestseller": true
+  },
+  {
+    "id": 17,
+    "name": "Pineapple",
+    "category": "Fruits",
+    "price": 100,
+    "unit": "1 piece",
+    "image": "/assets/pineapple.png",
+    "description": "Tropical sweet and tangy pineapple, great for juices and desserts.",
+    "bestseller": false
+  },
+  {
+    "id": 18,
+    "name": "Slice Cheese",
+    "category": "Dairy",
+    "price": 150,
+    "unit": "10 slices",
+    "image": "/assets/slice-cheese.png",
+    "description": "Convenient and creamy cheese slices, perfect for burgers and sandwiches.",
+    "bestseller": true
+  },
+  {
+    "id": 19,
+    "name": "Strawberry",
+    "category": "Fruits",
+    "price": 220,
+    "unit": "500 g",
+    "image": "/assets/strawberry.png",
+    "description": "Sweet and tangy strawberries, perfect for desserts and smoothies.",
+    "bestseller": true
+  },
+  {
+    "id": 20,
+    "name": "Tilapia",
+    "category": "Seafood",
+    "price": 350,
+    "unit": "1 kg",
+    "image": "/assets/tilapia.png",
+    "description": "Fresh tilapia fish, mild in flavor and great for grilling or frying.",
+    "bestseller": false
+  },
+  {
+    "id": 21,
+    "name": "Tofu",
+    "category": "Vegan",
+    "price": 180,
+    "unit": "400 g",
+    "image": "/assets/tofu.png",
+    "description": "Protein-rich tofu, versatile for stir-fries, curries, and salads.",
+    "bestseller": true
+  },
+  {
+    "id": 22,
+    "name": "Yogurt",
+    "category": "Dairy",
+    "price": 90,
+    "unit": "500 g",
+    "image": "/assets/yogurt.png",
+    "description": "Creamy and probiotic-rich yogurt, good for digestion and health.",
+    "bestseller": true
+  }
+]

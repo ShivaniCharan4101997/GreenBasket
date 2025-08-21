@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+:root{
+  /* primary */
+  --color-primary: #4CAF50;
+  --color-primary-light: #81C784;
+  --color-primary-dark: #388E3C;
+  /* secondary */
+  --color-secondary: #FF9800;
+  --color-secondary-light: #FFB74D;
+  --color-secondary-dark: #F57C00;
+  /* neutral */
+  --color-neutral: #9E9E9E;
+  --color-neutral-light: #BDBDBD;
+  --color-neutral-dark: #757575;
+}
+
+
+@layer components {
+  .navlink {
+    @apply  font-semibold transition  text-[var(--color-secondary)] hover:text-[var(--color-secondary-light)] text-xl tracking-wide;
+  }
+  .active{
+    @apply text-[var(--color-primary)] font-bold
+  }
+}
