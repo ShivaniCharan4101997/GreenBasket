@@ -14,6 +14,17 @@ const Products = () => {
     "Seafood",
     "Vegan",
   ];
+
+  const bannerImages = {
+    All: "/assets/all-banner.jpg",
+    Fruits: "/assets/fruits-banner.jpg",
+    Vegetables: "/assets/basket-full-vegetables.png",
+    Dairy: "/assets/dairy-banner.jpg",
+    Meat: "/assets/meat-and-seafood.png",
+    Seafood: "/assets/meat-and-seafood.png",
+    Vegan: "/assets/tofu.png",
+  };
+
   const [activeTab, setActiveTab] = React.useState("All");
 
   const filteredProducts =
@@ -24,7 +35,21 @@ const Products = () => {
   return (
     <Container>
       <div className="text-center">
-        <Heading span="Our" regular="Products" />
+        {/* Banner with Heading Overlay */}
+        <div className="relative w-full mt-6">
+          <img
+            src={bannerImages[activeTab]}
+            alt={`${activeTab} banner`}
+            className="w-full h-60 object-cover rounded-xl shadow-md"
+          />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-xl">
+            <Heading
+              span="Our"
+              regular="Products"
+              className="text-white drop-shadow-lg"
+            />
+          </div>
+        </div>
 
         {/* Tabs */}
         <div className="flex gap-4 mt-6 justify-center flex-wrap">
