@@ -44,7 +44,7 @@ const Products = () => {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
+        <div className="grid [grid-template-columns:_repeat(auto-fit,minmax(300px,1fr))] gap-8 mt-10">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
