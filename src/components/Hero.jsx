@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "../ui/Container";
-
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <Container>
@@ -17,9 +17,11 @@ const Hero = () => {
             Experience the convenience of online grocery shopping with
             GreenBasket.Our Products are Fresh and Organic.
           </p>
-          <button className="mt-6 bg-gradient-to-bl from-[var(--color-primary)] to-[var(--color-primary-light)] text-white py-2 px-4 rounded cursor-pointer">
-            Shop Now
-          </button>
+          <Link to="/products">
+            <button className="mt-6 bg-gradient-to-bl from-[var(--color-primary)] to-[var(--color-primary-light)] text-white py-2 px-4 rounded cursor-pointer">
+              Shop Now
+            </button>
+          </Link>
         </div>
         {/* hero img */}
         <div>

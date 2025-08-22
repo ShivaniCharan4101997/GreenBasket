@@ -22,7 +22,7 @@ const Navbar = () => {
 
           {/* Desktop menu */}
           <ul className="hidden lg:flex items-center space-x-8 font-medium">
-            {["Home", "About", "Contact", "Process"].map((item, i) => {
+            {["Home", "About", "Contact", "Products"].map((item, i) => {
               const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
               return (
                 <li key={i}>
@@ -77,7 +77,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="lg:hidden absolute top-full left-0 w-full bg-[var(--color-secondary)]/20 backdrop-blur-xl border-t border-gray-200 px-6 py-4 space-y-4 shadow-md z-40">
           <ul className="flex flex-col space-y-4 font-medium">
-            {["Home", "About", "Contact", "Process"].map((item, i) => {
+            {["Home", "About", "Contact", "Products"].map((item, i) => {
               const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
               return (
                 <li key={i}>
