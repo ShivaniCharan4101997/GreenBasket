@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const About = () => {
   return (
     <section className="bg-gradient-to-b from-green-50 to-white py-16 px-6 md:px-20">
-      {/* Container */}
       <Container>
         <div className="text-center">
           {/* Heading */}
