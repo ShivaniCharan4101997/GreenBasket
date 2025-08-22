@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../ui/Container";
 import Heading from "../ui/Heading";
 import ProductCard from "./ProductCard";
@@ -15,7 +14,7 @@ const FeaturedProducts = () => {
         <Heading span="Featured" regular="Products" />
 
         {/* Grid for only featured products */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10">
+        <div className="grid  [grid-template-columns:_repeat(auto-fit,minmax(300px,1fr))]  gap-8 mt-10">
           {featured.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

@@ -11,12 +11,12 @@
   },
   {
     "id": 2,
-    "name": "Beef",
-    "category": "Meat",
-    "price": 600,
+     "name": "Capsicum",
+    "category": "Vegetables",
+    "price": 180,
     "unit": "1 kg",
-    "image": "/assets/beef.png",
-    "description": "Tender and juicy organic beef, rich in protein and iron.",
+    "image": "/assets/capsicum.png",
+    "description": "Fresh and colorful capsicum, ideal for salads, curries, and roasting.",
     "bestseller": false
   },
   {
@@ -51,12 +51,12 @@
   },
   {
     "id": 6,
-    "name": "Capsicum",
-    "category": "Vegetables",
-    "price": 180,
+    "name": "Beef",
+    "category": "Meat",
+    "price": 600,
     "unit": "1 kg",
-    "image": "/assets/capsicum.png",
-    "description": "Fresh and colorful capsicum, ideal for salads, curries, and roasting.",
+    "image": "/assets/beef.png",
+    "description": "Tender and juicy organic beef, rich in protein and iron.",
     "bestseller": false
   },
   {

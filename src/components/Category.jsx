@@ -1,5 +1,4 @@
 import Container from "../ui/Container";
-import Heading from "../ui/Heading";
 
 const categories = [
   {
@@ -35,11 +34,11 @@ const Category = () => {
         </h2>
 
         {/* Categories grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 mt-10 place-items-center">
+        <div className="grid  [grid-template-columns:_repeat(auto-fit,minmax(300px,1fr))]  gap-12 mt-10 place-items-center">
           {categories.map((cat) => (
             <div
               key={cat.id}
-              className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-10 flex flex-col items-center text-center cursor-pointer border border-gray-100 hover:border-[var(--color-primary)] w-72"
+              className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-10 flex flex-col items-center text-center cursor-pointer border border-gray-100 hover:border-[var(--color-primary)] "
             >
               <div className="w-60 h-60 flex items-center justify-center rounded-full bg-[var(--color-secondary)]/10 group-hover:bg-[var(--color-secondary)]/20 transition">
                 <img
