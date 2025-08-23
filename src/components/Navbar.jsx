@@ -5,8 +5,10 @@ import { NavLink, Link } from "react-router-dom";
 import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import Container from "../ui/Container";
 import { useSearchContext } from "../context/SearchContext";
+import { useWishlist } from "../context/WishlistContext";
 
 const Navbar = () => {
+  const { wishlist } = useWishlist();
   const [isOpen, setIsOpen] = useState(false);
   const { query, setQuery } = useSearchContext();
   return (
@@ -53,12 +55,17 @@ const Navbar = () => {
           {/* Actions + Hamburger */}
           <div className="flex items-center space-x-6 text-[var(--color-secondary)]">
             {/* Favorites + Cart (always visible) */}
-            <NavLink
-              to="/favorites"
-              className="text-2xl hover:text-[var(--color-primary)] transition"
+            <Link
+              to="/wishlist"
+              className="relative text-2xl hover:text-[var(--color-primary)] transition"
             >
-              <GoHeartFill />
-            </NavLink>
+              <GoHeartFill className="text-xl text-[var(--color-secondary)]" />
+              {wishlist.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">
+                  {wishlist.length}
+                </span>
+              )}
+            </Link>
             <NavLink
               to="/cart"
               className="text-2xl hover:text-[var(--color-primary)] transition"

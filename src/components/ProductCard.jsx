@@ -1,14 +1,19 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { GoHeart, GoHeartFill } from "react-icons/go";
 import { HiShoppingBag } from "react-icons/hi";
 import AnimatedNumber from "./AnimatedNumber";
+import { useWishlist } from "../context/WishlistContext";
 
 const ProductCard = ({ product }) => {
-  const [wishlist, setWishlist] = useState(false);
   const [quantity, setQuantity] = useState(0);
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   const toggleWishlist = () => {
-    setWishlist(!wishlist);
+    if (isInWishlist(product.id)) {
+      removeFromWishlist(product.id);
+    } else {
+      addToWishlist(product);
+    }
   };
 
   const increaseQty = () => {
@@ -33,7 +38,7 @@ const ProductCard = ({ product }) => {
         onClick={toggleWishlist}
         className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-md hover:bg-gray-100 transition"
       >
-        {wishlist ? (
+        {isInWishlist(product.id) ? (
           <GoHeartFill className="text-red-500 text-lg" />
         ) : (
           <GoHeart className="text-gray-500 text-lg" />
@@ -74,18 +79,25 @@ const ProductCard = ({ product }) => {
 
       {/* Cart Section */}
       <div className="mt-5">
-        {quantity === 0 ? <button
-          onClick={handleAddToCart}
-          className=" w-full flex items-center justify-center gap-2 bg-[var(--color-primary)]
+        {quantity === 0 ? (
+          <button
+            onClick={handleAddToCart}
+            className=" w-full flex items-center justify-center gap-2 bg-[var(--color-primary)]
           border border-transparent
-           text-white py-2.5 rounded-xl font-medium hover:text-green-600 hover:bg-transparent hover:border-green-600  transition">
-          <HiShoppingBag className="text-lg" /> <span>Add to Cart</span> 
-        </button> :
-          <AnimatedNumber data={quantity} negativeCb={decreaseQty} positiveCb={increaseQty} />}
+           text-white py-2.5 rounded-xl font-medium hover:text-green-600 hover:bg-transparent hover:border-green-600  transition"
+          >
+            <HiShoppingBag className="text-lg" /> <span>Add to Cart</span>
+          </button>
+        ) : (
+          <AnimatedNumber
+            data={quantity}
+            negativeCb={decreaseQty}
+            positiveCb={increaseQty}
+          />
+        )}
       </div>
     </div>
   );
 };
-
 
 export default ProductCard;
