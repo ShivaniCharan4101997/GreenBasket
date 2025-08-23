@@ -3,10 +3,12 @@ import { GoHeart, GoHeartFill } from "react-icons/go";
 import { HiShoppingBag } from "react-icons/hi";
 import AnimatedNumber from "./AnimatedNumber";
 import { useWishlist } from "../context/WishlistContext";
+import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
   const [quantity, setQuantity] = useState(0);
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { addToCart } = useCart();
 
   const toggleWishlist = () => {
     if (isInWishlist(product.id)) {
@@ -25,10 +27,6 @@ const ProductCard = ({ product }) => {
       if (prev <= 1) return 0;
       return prev - 1;
     });
-  };
-
-  const handleAddToCart = () => {
-    setQuantity(1);
   };
 
   return (
@@ -81,7 +79,7 @@ const ProductCard = ({ product }) => {
       <div className="mt-5">
         {quantity === 0 ? (
           <button
-            onClick={handleAddToCart}
+            onClick={() => addToCart(product)}
             className=" w-full flex items-center justify-center gap-2 bg-[var(--color-primary)]
           border border-transparent
            text-white py-2.5 rounded-xl font-medium hover:text-green-600 hover:bg-transparent hover:border-green-600  transition"

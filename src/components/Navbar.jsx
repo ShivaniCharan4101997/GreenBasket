@@ -6,11 +6,13 @@ import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import Container from "../ui/Container";
 import { useSearchContext } from "../context/SearchContext";
 import { useWishlist } from "../context/WishlistContext";
-
+import { useCart } from "../context/CartContext";
 const Navbar = () => {
   const { wishlist } = useWishlist();
   const [isOpen, setIsOpen] = useState(false);
   const { query, setQuery } = useSearchContext();
+  const { cart } = useCart();
+
   return (
     <header className="bg-white shadow-md sticky top-0 z-50 ">
       <Container>
@@ -66,12 +68,14 @@ const Navbar = () => {
                 </span>
               )}
             </Link>
-            <NavLink
-              to="/cart"
-              className="text-2xl hover:text-[var(--color-primary)] transition"
-            >
-              <HiShoppingBag />
-            </NavLink>
+            <Link to="/cart" className="relative">
+              <HiShoppingBag className="text-2xl" />
+              {cart?.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-[var(--color-primary)] text-white text-xs rounded-full px-1">
+                  {cart.length}
+                </span>
+              )}
+            </Link>
 
             {/* Hamburger (mobile only) */}
             <button
@@ -82,41 +86,41 @@ const Navbar = () => {
             </button>
           </div>
         </nav>
-      </Container>
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-[var(--color-secondary)]/20 backdrop-blur-xl border-t border-gray-200 px-6 py-4 space-y-4 shadow-md z-40">
-          <ul className="flex flex-col space-y-4 font-medium">
-            {["Home", "About", "Contact", "Products"].map((item, i) => {
-              const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
-              return (
-                <li key={i}>
-                  <NavLink
-                    to={path}
-                    onClick={() => setIsOpen(false)}
-                    className={"navlink"}
-                  >
-                    {item}
-                  </NavLink>
-                </li>
-              );
-            })}
-          </ul>
+        {/* Mobile menu */}
+        {isOpen && (
+          <div className="lg:hidden absolute top-full left-0 w-full bg-[var(--color-secondary)]/20 backdrop-blur-xl border-t border-gray-200 px-6 py-4 space-y-4 shadow-md z-40">
+            <ul className="flex flex-col space-y-4 font-medium">
+              {["Home", "About", "Contact", "Products"].map((item, i) => {
+                const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+                return (
+                  <li key={i}>
+                    <NavLink
+                      to={path}
+                      onClick={() => setIsOpen(false)}
+                      className={"navlink"}
+                    >
+                      {item}
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </ul>
 
-          {/* Mobile search bar */}
-          <div className="flex items-center border border-[var(--color-secondary)] p-1 rounded-full">
-            <input
-              type="text"
-              placeholder="Search groceries..."
-              autoComplete="off"
-              className="px-4 py-2 w-full text-sm focus:outline-none"
-            />
-            <button className="bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-secondary)] text-white flex items-center justify-center text-xl h-10 w-10 rounded-full">
-              <FiSearch />
-            </button>
+            {/* Mobile search bar */}
+            <div className="flex items-center border border-[var(--color-secondary)] p-1 rounded-full">
+              <input
+                type="text"
+                placeholder="Search groceries..."
+                autoComplete="off"
+                className="px-4 py-2 w-full text-sm focus:outline-none"
+              />
+              <button className="bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-secondary)] text-white flex items-center justify-center text-xl h-10 w-10 rounded-full">
+                <FiSearch />
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </Container>
     </header>
   );
 };
