@@ -3,6 +3,7 @@ import Container from "../ui/Container";
 import Heading from "../ui/Heading";
 import ProductCard from "../components/ProductCard";
 import productsData from "../productList.json";
+import { useSearchContext } from "../context/SearchContext";
 
 const Products = () => {
   const productCategories = [
@@ -14,7 +15,7 @@ const Products = () => {
     "Seafood",
     "Vegan",
   ];
-
+  const { searchResults } = useSearchContext();
   const bannerImages = {
     All: "/assets/all-banner.jpg",
     Fruits: "/assets/fruits-banner.jpg",
@@ -27,8 +28,10 @@ const Products = () => {
 
   const [activeTab, setActiveTab] = React.useState("All");
 
-  const filteredProducts =
-    activeTab === "All"
+  const displayedProducts =
+    searchResults.length > 0
+      ? searchResults
+      : activeTab === "All"
       ? productsData
       : productsData.filter((p) => p.category === activeTab);
 
@@ -70,7 +73,7 @@ const Products = () => {
 
         {/* Product Grid */}
         <div className="grid [grid-template-columns:_repeat(auto-fit,minmax(300px,1fr))] gap-8 mt-10">
-          {filteredProducts.map((product) => (
+          {displayedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

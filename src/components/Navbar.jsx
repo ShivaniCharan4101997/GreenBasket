@@ -4,10 +4,11 @@ import { HiShoppingBag } from "react-icons/hi";
 import { NavLink, Link } from "react-router-dom";
 import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import Container from "../ui/Container";
+import { useSearchContext } from "../context/SearchContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { query, setQuery } = useSearchContext();
   return (
     <header className="bg-white shadow-md sticky top-0 z-50 ">
       <Container>
@@ -38,6 +39,8 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center border border-[var(--color-secondary)] p-1 rounded-full overflow-hidden">
             <input
               type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
               placeholder="Search groceries..."
               autoComplete="off"
               className="px-3 py-2 w-40 md:w-56 text-sm flex-1 focus:outline-none"
