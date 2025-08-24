@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import { useRef, useState } from "react";
 import { GoHeartFill } from "react-icons/go";
 import { HiShoppingBag } from "react-icons/hi";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import Container from "../ui/Container";
-import { useSearchContext } from "../context/SearchContext";
 import { useWishlist } from "../context/WishlistContext";
 import { useCart } from "../context/CartContext";
+
 const Navbar = () => {
   const { wishlist } = useWishlist();
   const [isOpen, setIsOpen] = useState(false);
-  const { query, setQuery } = useSearchContext();
   const { cart } = useCart();
+
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50 ">
@@ -40,19 +40,7 @@ const Navbar = () => {
           </ul>
 
           {/* Search bar (tablet + desktop) */}
-          <div className="hidden lg:flex items-center border border-[var(--color-secondary)] p-1 rounded-full overflow-hidden">
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search groceries..."
-              autoComplete="off"
-              className="px-3 py-2 w-40 md:w-56 text-sm flex-1 focus:outline-none"
-            />
-            <button className="bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-secondary)] text-white flex items-center justify-center text-xl h-9 w-9 md:h-10 md:w-10 rounded-full">
-              <FiSearch />
-            </button>
-          </div>
+          <SearchBar />
 
           {/* Actions + Hamburger */}
           <div className="flex items-center space-x-6 text-[var(--color-secondary)]">
@@ -124,5 +112,35 @@ const Navbar = () => {
     </header>
   );
 };
+
+
+function SearchBar() {
+  const searchRef = useRef(null)
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const seachQuery = searchParams.get("search")
+
+  function handleSearch(e) {
+    e.preventDefault()
+    const value = searchRef.current.value
+    navigate("/products?search=" + value)
+  }
+
+
+  return <form onSubmit={handleSearch} className="hidden lg:flex items-center border border-[var(--color-secondary)] p-1 rounded-full overflow-hidden">
+    <input
+      ref={searchRef}
+      defaultValue={seachQuery||""}
+      type="text"
+      placeholder="Search groceries..."
+      autoComplete="off"
+      className="px-3 py-2 w-40 md:w-56 text-sm flex-1 focus:outline-none"
+    />
+    <button
+      className="bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-secondary)] text-white flex items-center justify-center text-xl h-9 w-9 md:h-10 md:w-10 rounded-full">
+      <FiSearch />
+    </button>
+  </form>
+}
 
 export default Navbar;

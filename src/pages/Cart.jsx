@@ -1,6 +1,7 @@
 import { useCart } from "../context/CartContext";
 import Heading from "../ui/Heading";
 import Container from "../ui/Container";
+import NotFound from "@/not-found";
 const CartPage = () => {
   const { cart, removeFromCart, updateQuantity, cartTotal, clearCart } =
     useCart();
@@ -9,7 +10,8 @@ const CartPage = () => {
     <Container>
       <Heading span="My" regular="Cart" />
       {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <NotFound rootClass="mt-[100px] h-[40vh]" message={"No item found"}
+          title={"Your cart is empty."}></NotFound>
       ) : (
         <>
           <div className="space-y-4">

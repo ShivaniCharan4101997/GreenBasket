@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Heading from "../ui/Heading";
 import { messagesCollection } from "../firebaseConfig";
 import { addDoc } from "firebase/firestore";
+import Heading from "@/ui/Heading";
 
-const ContactUs = () => {
+export default function ContactUs() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,12 +26,11 @@ const ContactUs = () => {
       setSuccess(true);
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("Error adding document: ", error);
+      console.error("Error adding document: ", error.message);
     } finally {
       setLoading(false);
     }
   }
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-400 via-orange-300 to-yellow-200 p-6">
       <div className="backdrop-blur-md bg-white/20 border border-white/30 shadow-lg rounded-2xl p-8 max-w-lg w-full">
@@ -43,7 +42,7 @@ const ContactUs = () => {
             onChange={handleChange}
             type="text"
             placeholder="Your Name"
-            className="p-3 rounded-lg border border-white/30 bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-300"
+            className={inputClass}
             required
           />
           <input
@@ -52,7 +51,7 @@ const ContactUs = () => {
             onChange={handleChange}
             type="email"
             placeholder="Your Email"
-            className="p-3 rounded-lg border border-white/30 bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-300"
+            className={inputClass}
             required
           />
           <textarea
@@ -61,14 +60,14 @@ const ContactUs = () => {
             onChange={handleChange}
             placeholder="Your Message"
             rows={4}
-            className="p-3 rounded-lg border border-white/30 bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-300"
+            className={inputClass}
             required
           ></textarea>
 
           <button
             type="submit"
             disabled={loading}
-            className="bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 rounded-lg transition duration-300 shadow-md disabled:bg-gray-400"
+            className="bg-green-500 hover:bg-green-600 font-bold py-3 rounded-lg transition duration-300 shadow-md disabled:bg-gray-400"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
@@ -84,4 +83,7 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+
+const inputClass = "p-3 rounded-lg  bg-white/10  placeholder-gray-400"
+
+

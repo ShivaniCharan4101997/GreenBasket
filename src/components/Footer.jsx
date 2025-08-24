@@ -58,33 +58,28 @@ const Footer = () => {
 
         {/* Right: Social Media */}
         <div className="flex gap-4">
-          <a
-            href="#"
-            className="p-2 bg-[var(--color-secondary)] rounded-full hover:bg-[var(--color-secondary-dark)] transition"
-          >
-            <FaFacebookF />
-          </a>
-          <a
-            href="#"
-            className="p-2 bg-[var(--color-secondary)] rounded-full hover:bg-[var(--color-secondary-dark)] transition"
-          >
-            <FaTwitter />
-          </a>
-          <a
-            href="#"
-            className="p-2 bg-[var(--color-secondary)] rounded-full hover:bg-[var(--color-secondary-dark)] transition"
-          >
-            <FaInstagram />
-          </a>
+          <SocialIcon><FaFacebookF /></SocialIcon>
+          <SocialIcon><FaTwitter /></SocialIcon>
+          <SocialIcon><FaInstagram /></SocialIcon>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="mt-6 border-t border-[var(--color-neutral-dark)] pt-4 text-center text-xs text-[var(--color-neutral-light)]">
+      <div className="mt-6  pt-4 text-center text-xs text-[var(--color-neutral-light)]">
         © {new Date().getFullYear()} GreenBasket. All rights reserved.
       </div>
     </footer>
   );
 };
+
+function SocialIcon({ children, props }) {
+  return <a
+    href="#"
+    className="p-2 border-2 hover:border-yellow-400 rounded-full transition"
+    {...props}
+  >
+    {children}
+  </a>
+}
 
 export default Footer;

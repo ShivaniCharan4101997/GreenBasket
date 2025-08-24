@@ -12,13 +12,13 @@ export default function AnimatedNumber({data, negativeCb,positiveCb}) {
     function add() {
       positiveCb()
     }
-const BTN_CSS = 'bg-pink-500 hover:bg-pink-600 text-white h-10 w-10 flex justify-center items-center rounded-full'
+const BTN_CSS = 'bg-green-600 hover:bg-green-700 text-white h-10 w-10 flex justify-center items-center rounded-full'
     return (
         <LayoutGroup id='Framer-Num-Component'>
             <div>
                 <motion.div layout
                     // style={{ fontFamily: ' "Azeret Mono", monospace' }}
-                    className="flex justify-between rounded-[1000px] border-2 border-pink-300 p-0.5  items-center ">
+                    className="flex justify-between rounded-full border-2 border-green-600 p-0.5  items-center ">
                     <motion.button whileTap={{ scale: .9 }} onClick={minus}
                      className={BTN_CSS}><HiMinus height={24} width={24} /></motion.button>
                     <div className="flex relative text-lg font-bold items-center ">

@@ -24,3 +24,23 @@
     @apply text-[var(--color-primary)] font-bold
   }
 }
+
+
+@keyframes movePupil {
+  0%,
+  to {
+    transform: translate(0);
+  }
+
+  25% {
+    transform: translate(-10px, -10px);
+  }
+
+  50% {
+    transform: translate(10px, 10px);
+  }
+
+  75% {
+    transform: translate(-10px, 10px);
+  }
+}
